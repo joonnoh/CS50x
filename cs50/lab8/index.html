@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Monty Python Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            function checkName(idtag) {
+                let correctName = document.querySelector("#nameCorrect");
+                let incorrectName = document.querySelector("#nameIncorrect");
+                let answer = "Arthur";
+                if (idtag == answer)
+                {
+                    if (incorrectName.style.display == "block")
+                    {
+                        incorrectName.style.display = "none";
+                    }
+                    document.getElementById(idtag).style.backgroundColor = "green";
+                    correctName.style.display = "block";
+                }
+                else
+                {
+                    if (correctName.style.display == "block")
+                    {
+                        correctName.style.display = "none";
+                    }
+                    document.getElementById(idtag).style.backgroundColor = "red";
+                    incorrectName.style.display = "block";
+                }
+            }
+
+            function checkQuest() {
+                let correctQuest = document.querySelector("#questCorrect");
+                let incorrectQuest = document.querySelector("#questIncorrect");
+                let input = document.querySelector('input').value;
+                if (input.toLowerCase() == 'holy grail')
+                {
+                    if (incorrectQuest.style.display == "block")
+                    {
+                        incorrectQuest.style.display = "none";
+                    }
+                    document.getElementById('tbox').style.backgroundColor = "green";
+                    correctQuest.style.display = "block";
+
+                    document.querySelector("#finalSection").style.display = "block";
+                    document.getElementById('finalSection').scrollIntoView();
+                }
+                else
+                {
+                    if (correctQuest.style.display == "block")
+                    {
+                        correctQuest.style.display = "none";
+                    }
+                    document.getElementById('tbox').style.backgroundColor = "red";
+                    incorrectQuest.style.display = "block";
+                }
+            }
+
+            function finalQuestion() {
+                document.getElementById('yes').style.backgroundColor = 'green';
+                document.querySelector('#finalQuestion').style.display = "block";
+                document.getElementById('finalQuestion').scrollIntoView();
+            }
+
+
+            function checkFinalQuestion(button) {
+                if (button == 'button3')
+                {
+                    document.getElementById('button3').style.backgroundColor = 'green';
+                    alert("What? I... I don't know that")
+                    alert("How do you know so much about swallows?")
+                    //document.querySelector('#victoryMessage').style.display = "block";
+                    $('#victoryMessage').fadeIn(4000);
+                    document.getElementById('victoryMessage').scrollIntoView();
+                }
+                else
+                {
+                    document.getElementById(button).style.backgroundColor = 'red';
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Monty Python Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is your name?</h3>
+                <h4 id="nameCorrect">Correct!</h4>
+                <h4 id="nameIncorrect">Incorrect</h4>
+                <button id="Lancelot" onclick="checkName('Lancelot')">Lancelot</button>
+                <button id="Robin" onclick="checkName('Robin')">Robin</button>
+                <button id="Galahad" onclick="checkName('Galahad')">Galahad</button>
+                <button id="Arthur" onclick="checkName('Arthur')">Arthur</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is your quest?</h3>
+                <h4 id="questCorrect">Correct!</h4>
+                <h4 id="questIncorrect">Incorrect</h4>
+                <form id="quest" onsubmit="checkQuest(); return false;">
+                    <input id="tbox" autocomplete="off" placeholder="To seek the..." type="text">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="section" id="finalSection">
+                <h3>Final Question</h3>
+                <hr>
+                <h3>Are you ready?</h3>
+                <button id="yes" onclick="finalQuestion()">Yes</button>
+                <div id="finalQuestion">
+                    <h3>What is the air-speed velocity of an unladen swallow?</h3>
+                    <div>
+                        <button id="button1" onclick="checkFinalQuestion('button1')">2.4 meters/sec</button>
+                        <button id="button2" onclick="checkFinalQuestion('button2')">110 meters/sec</button>
+                        <button id="button3" onclick="checkFinalQuestion('button3')">What do you mean? An African or European swallow?</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="victoryMessage">
+                <h5>Well, you have to know these things when you're a king, you know.</h5>
+                <image src='holygrail.jpg' style="float:left;"></image>
+                <h3 id="congrats">Congrats! You helped King Arthur find the Holy Grail. Thanks for playing :)</h3>
+            </div>
+
+        </div>
+    </body>
+</html>

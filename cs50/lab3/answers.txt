@@ -1,0 +1,59 @@
+sort1 uses: bubble sort
+
+How do you know?: Fastest time for sorted list and slowest for random list
+real    0m2.062s
+user    0m0.046s
+sys     0m0.075s
+time ./sort1 sorted50000.txt
+real    0m11.139s
+user    0m4.589s
+sys     0m0.096s
+~/lab3/ $ time ./sort1 reversed50000.txt
+real    0m16.180s
+user    0m6.464s
+sys     0m0.108s
+~/lab3/ $ time ./sort1 random50000.txt
+real    0m0.010s
+user    0m0.005s
+sys     0m0.005s
+~/lab3/ $ time ./sort1 sorted5000.txt
+
+sort2 uses: merge sort
+
+How do you know?: Fastest average times and not a huge difference in time to sort between large and small list of numbers
+real    0m3.339s
+user    0m0.026s
+sys     0m0.097s
+time ./sort2 sorted50000.txt
+real    0m4.250s
+user    0m0.037s
+sys     0m0.095s
+~/lab3/ $ time ./sort2 reversed50000.txt
+real    0m2.928s
+user    0m0.036s
+sys     0m0.092s
+~/lab3/ $ time ./sort2 random50000.txt
+real    0m0.014s
+user    0m0.005s
+sys     0m0.009s
+~/lab3/ $ time ./sort2 sorted5000.txt
+
+sort3 uses: selection sort
+
+How do you know?: Slowest time for sorted list
+real    0m7.018s
+user    0m2.497s
+sys     0m0.085s
+~/lab3/ $ time ./sort3 sorted50000.txt
+real    0m9.114s
+user    0m2.437s
+sys     0m0.084s
+~/lab3/ $ time ./sort3 reversed50000.txt
+real    0m6.806s
+user    0m2.392s
+sys     0m0.080s
+~/lab3/ $ time ./sort3 random50000.txt
+real    0m0.033s
+user    0m0.022s
+sys     0m0.011s
+~/lab3/ $ time ./sort3 sorted5000.txt
